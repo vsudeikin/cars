@@ -11,5 +11,7 @@
 |
 */
 
-Route::get('/', 'IndexController@index');
+Route::get('/{id?}', 'IndexController@index')->name('main');
 Auth::routes();
+Route::resource('car', 'CarController');
+Route::resource('owner', 'OwnerController');

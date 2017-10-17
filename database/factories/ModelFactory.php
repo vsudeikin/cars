@@ -29,6 +29,7 @@ $factory->define(App\Car::class, function (Faker\Generator $faker) {
         'models' => 'default',
         'year' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'color' => $faker->colorName,
+        'owner_id' => random_int(1, 10),
     ];
 });
 

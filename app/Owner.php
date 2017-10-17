@@ -12,8 +12,8 @@ class Owner extends Model
 
     protected $table = 'owners';
 
-    public function car()
+    public function cars()
     {
-        $this->hasMany($this, 'cars');
+       return $this->hasMany('App\Car', 'owner_id');
     }
 }
