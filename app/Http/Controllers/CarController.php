@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Car;
 
 class CarController extends Controller
 {
@@ -61,7 +62,8 @@ class CarController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car = Car::find($id);
+       return view('site.editCar')->with('car', $car);
     }
 
     /**
@@ -84,6 +86,7 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Car::destroy($id);
+        return redirect()->route('main');
     }
 }

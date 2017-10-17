@@ -18,7 +18,7 @@
       </td>
       <td> {{ $owner->cars->count() }} </td>
       <td>
-        <form action='{{ route("car.destroy", $owner->id) }}' method="post">
+        <form action='{{ route("owner.destroy", $owner->id) }}' method="post">
           {{ csrf_field() }}
           {{ method_field('DELETE') }}
           <input class="btn btn-danger btn-sm" type="submit" value="Удалить">

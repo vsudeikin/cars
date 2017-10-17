@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Owner;
 
 class OwnerController extends Controller
 {
@@ -61,7 +62,8 @@ class OwnerController extends Controller
      */
     public function edit($id)
     {
-        //
+       $owner = Owner::find($id);
+       return view('site.editOwner')->with('owner', $owner);
     }
 
     /**
@@ -84,6 +86,15 @@ class OwnerController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $owner = Owner::find($id);
+       if ($owner->cars->count() > 0) {
+            foreach ($owner->cars as $car) {
+                $car->owner_id = null;
+                $car->save();
+            }
+       }
+       $owner->destroy($id);
+
+       return redirect()->route('main', 1);
     }
 }
