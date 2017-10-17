@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Owner;
 
-class DatabaseSeeder extends Seeder
+class OwnerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(CarSeeder::class);
-        $this->call(OwnerSeeder::class);
+        factory(Owner::class, 10)->create();
     }
 }
