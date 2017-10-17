@@ -11,4 +11,9 @@ class Owner extends Model
     ]; 
 
     protected $table = 'owners';
+
+    public function car()
+    {
+        $this->hasMany($this, 'cars');
+    }
 }

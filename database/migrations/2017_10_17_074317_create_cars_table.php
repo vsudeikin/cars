@@ -18,7 +18,6 @@ class CreateCarsTable extends Migration
             $table->string('models');
             $table->date('year');
             $table->string('color');
-            $table->string('owner_id')->nullable();
             $table->timestamps();
         });
     }

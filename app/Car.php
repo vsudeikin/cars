@@ -14,4 +14,9 @@ class Car extends Model
     ]; 
 
     protected $table = 'cars';
+
+    public function owner()
+    {
+        $this->belongsTo($this, 'id');
+    }
 }

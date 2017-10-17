@@ -14,8 +14,8 @@ class OwnersIdRelation extends Migration
     public function up()
     {
          Schema::table('cars', function (Blueprint $table) {
-            $table->integer('owners_id')->unsigned()->after('color')->nullable();
-            $table->foreign('owners_id')->references('id')->on('owners');
+            $table->integer('owner_id')->unsigned()->after('color')->nullable();
+            $table->foreign('owner_id')->references('id')->on('owners');
         });
     }
 
