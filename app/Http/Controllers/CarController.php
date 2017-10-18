@@ -29,7 +29,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        return view('site.editCar');
     }
 
     /**
@@ -40,7 +40,20 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (isset($request->id)){
+            $car = Car::find($request->id);
+            $car->models = $request->model;
+            $car->year = $request->year;
+            $car->color = $request->color;
+            $car->save();
+        } else {
+            $car = new Car;
+            $car->models = $request->model;
+            $car->year = $request->year;
+            $car->color = $request->color;
+            $car->save();
+        }
+        return redirect()->route('main');
     }
 
     /**
@@ -62,7 +75,7 @@ class CarController extends Controller
      */
     public function edit($id)
     {
-        $car = Car::find($id);
+       $car = Car::find($id);
        return view('site.editCar')->with('car', $car);
     }
 

@@ -29,7 +29,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('site.editOwner');
     }
 
     /**
@@ -40,7 +40,16 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (isset($request->id)){
+            $owner = Owner::find($request->id);
+            $owner->name = $request->name;
+            $owner->save();
+        } else {
+            $owner = new Owner;
+            $owner->name = $request->name;
+            $owner->save();
+        }
+        return redirect()->route('main', 1);
     }
 
     /**
