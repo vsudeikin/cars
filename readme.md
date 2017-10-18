@@ -14,4 +14,19 @@ After installation:
             - DB_USERNAME=your's db user name
             - DB_PASSWORD=your's db password
 3) On poject folder: php artisan migrate --seed
-4) Register new user. http://project.name/register            
+4) Register new user. http://project.name/register
+5) Get your api_token. http://project.name/token
+
+REST API:
+    Car fields: [ id, models, year, color, owner_id, created_at, updated_at]
+    Owners fields: [id, name, created_at, updated_at]
+
+You can use: CURL, POSTMAN etc. to make CRUD operations (must use api_token).
+Targets are: 
+            http://your.project/api/car
+            http://your.project/api/owner
+CRUD request methods:
+CREATE: POST /api/...
+READ: GET /api/.../{id}
+UPDATE: PUT /api/.../{id} 
+DELETE: DELETE /api/.../{id}
