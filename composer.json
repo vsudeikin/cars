@@ -2,6 +2,7 @@
     "name": "suval/cars",
     "description": "Test for Megakit.pro",
     "license": "proprietary",
+    "stability": "stable",
     "autors": [
         {
             "name": "Valentyn Sudeikin",
