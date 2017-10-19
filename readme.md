@@ -6,7 +6,7 @@ From GitHub:
 
 From composer:
 
-    composer create-project suval/cars
+    composer create-project suval/cars:dev-master project_name
 
 After installation:
 1)    create DB "cars"
