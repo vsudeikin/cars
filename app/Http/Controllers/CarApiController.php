@@ -40,7 +40,13 @@ class CarApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $car = new Car;
+        $car->models = $request->input('models', 'BMW x5');
+        $car->color = $request->input('color', 'Red');
+        $car->year = $request->input('year', '2017-01-01');
+        $car->owner_id = $request->input('owner_id', 1);
+        $car->save();
+        return response('ok', 200);
     }
 
     /**
@@ -74,7 +80,13 @@ class CarApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $car = Car::find($id);
+        $car->models = $request->input('models', 'BMW x5');
+        $car->color = $request->input('color', 'Red');
+        $car->year = $request->input('year', '2017-01-01');
+        $car->owner_id = $request->input('owner_id', 1);
+        $car->save();
+        return response('ok', 200);
     }
 
     /**

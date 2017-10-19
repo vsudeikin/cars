@@ -40,7 +40,10 @@ class OwnerApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $owner = new Owner;
+        $owner->name = $request->input('name', 'John Smith');
+        $owner->save();
+        return response('ok', 200);
     }
 
     /**
@@ -74,7 +77,10 @@ class OwnerApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $owner = Owner::find($id);
+        $owner->name = $request->input('name', 'John Smith');
+        $owner->save();
+        return response('ok', 200);
     }
 
     /**
