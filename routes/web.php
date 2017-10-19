@@ -12,6 +12,7 @@
 */
 
 Auth::routes();
+Route::get('home', 'HomeController@index');
 Route::get('/{id?}', 'IndexController@index')->name('main');
 Route::resource('car', 'CarController');
 Route::resource('owner', 'OwnerController');
